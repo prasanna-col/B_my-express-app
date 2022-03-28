@@ -1,0 +1,17 @@
+// Find All the data from collection with some conditions means, pass the projecttion with 0 or 1
+    eg:
+    collection.find({}, { projection: { _id: 0, items: 0 } }).toArray( function (err, res) {
+    
+
+// Find data with some conditions(queries) with projection
+    eg:
+    var query = { price_of_product: 50 };
+    collection.find(query, { projection: { items: 0 } }).toArray( function (err, res) {
+
+// Update the document with condtional value like (eg: where name is praveen , update his job to HR) \
+    eg:
+    var checkdata = { status: "C", customer_address: "Madurai" }; // for where contion
+    var updatedata = { $set: { status: "R", price_of_product: 55 } };
+    collection.updateOne(checkdata, updatedata, function (err, res) {
+
+// 

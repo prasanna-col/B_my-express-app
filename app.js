@@ -7,7 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
 var pushtriggerRouter = require('./routes/pushtrigger');
-var add_productRouter = require('./routes/add_product')
+var add_productRouter = require('./routes/add_product');
+var get_productRouter = require('./routes/get_product');
 var app = express();
 
 // view engine setup
@@ -24,6 +25,7 @@ app.use('/', indexRouter);
 // app.use('/users', usersRouter);
 app.use('/pushtrigger',pushtriggerRouter);
 app.use('/add_product',add_productRouter);
+app.use('/get_product', get_productRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
