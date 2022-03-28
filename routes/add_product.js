@@ -6,19 +6,19 @@ const { DB_NAME,DB_URL, Client } = require("../constant/db_data");
 const { Available_products } = require("../constant/db_collections_name");
 
 const sample_data = {
-  _id: 1,
-  customer_address: "Pune",
+//   _id: 1,
+  customer_address: "kadalur",
   ordered_date: "2020-03-01",
-  price_of_product: 89,
+  price_of_product: 10,
   items: [
     {
-      Product: "oranges",
-      Quantity: 5,
+      Product: "orange",
+      Quantity: 60,
       price_of_product: 2.5,
     },
     {
       product: "apples",
-      Quantity: 5,
+      Quantity: 10,
     price_of_product: 2.5,
     },
   ],
