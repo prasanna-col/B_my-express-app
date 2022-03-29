@@ -9,6 +9,7 @@ var indexRouter = require('./routes/index');
 var pushtriggerRouter = require('./routes/pushtrigger');
 var add_productRouter = require('./routes/add_product');
 var get_productRouter = require('./routes/get_product');
+var get_student_detailsRouter = require('./routes/get_student_details')
 var app = express();
 
 // view engine setup
@@ -26,6 +27,7 @@ app.use('/', indexRouter);
 app.use('/pushtrigger',pushtriggerRouter);
 app.use('/add_product',add_productRouter);
 app.use('/get_product', get_productRouter);
+app.use('/get_student_details', get_student_detailsRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
