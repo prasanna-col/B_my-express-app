@@ -4,4 +4,6 @@
 
 // MongoDB test
 
-- 
+- Testing the mongodb methods, 
+- student details added and get the modified data as response.
+- menus data added in db, get the modeified and needfull data as output

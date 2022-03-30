@@ -25,6 +25,7 @@ router.post("/", (request, response) => {
         },
         {
           $project: {
+            _id:0,
             student_id: "$Application_No",
             student_name: "$ph_marks.Name",
             dob: "$ph_marks.DOB",
@@ -41,7 +42,9 @@ router.post("/", (request, response) => {
       ])
       .toArray(function (err, res) {
         if (err) throw err;
-        response.json({ message: "success", response: res });
+        var newres = res.filter(value => Object.keys(value).length !== 0);
+
+        response.json({ message: "success", response: newres });
         Client.close();
       });
   });

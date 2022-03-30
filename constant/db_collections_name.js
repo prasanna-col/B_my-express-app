@@ -4,4 +4,5 @@ module.exports = {
   car_data:"car_data",
   candidate_bio_data:"candidate_bio_data",
   candidate_marks:"candidate_marks",
+  ordered_menus:"ordered_menus"
 };
