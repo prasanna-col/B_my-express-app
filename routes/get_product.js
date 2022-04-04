@@ -83,20 +83,21 @@ router.post("/", async (request, response) => {
     //   });
 
     // for pagination
-    console.log("request.body ------>", request.body.page);
+    
+    // console.log("request.body ------>", request.body.page);
     var perPage = 2;
 
     var total_doc = await collection.count();
-    console.log("total docs ------>", total_doc);
+    // console.log("total docs ------>", total_doc);
 
     var total_pages = Math.ceil(total_doc / perPage);
-    console.log("total pages ------>", total_pages);
+    // console.log("total pages ------>", total_pages);
 
     var pageNumber = request.body.page == null ? 1 : request.body.page;
-    console.log("pageNumber ------>", pageNumber);
+    // console.log("pageNumber ------>", pageNumber);
 
     var startFrom = (pageNumber - 1) * perPage;
-    console.log("startFrom ------>", startFrom);
+    // console.log("startFrom ------>", startFrom);
 
     var res = await collection
       .find({})
@@ -105,9 +106,9 @@ router.post("/", async (request, response) => {
       .limit(perPage)
       .toArray();
 
-      console.log("request.body.page:", Number(request.body.page)," total pages:",total_pages,)
-    var next_page =
-     ( Number(request.body.page) < total_pages) ? (Number(request.body.page) + 1) : total_pages;
+    // console.log("request.body.page:", Number(request.bodyssssss.page)," total pages:",total_pages,)
+    
+    var next_page =(Number(request.body.page) < total_pages) ? (Number(request.body.page) + 1) : total_pages;
 
     var current_page = Number(request.body.page);
 
