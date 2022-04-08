@@ -6,7 +6,7 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 // var usersRouter = require('./routes/users');
-var pushtriggerRouter = require("./routes/pushtrigger");
+var pushtriggerRouter = require("./routes/pushtrigger"); // Get Method
 var add_productRouter = require("./routes/add_product");
 var get_productRouter = require("./routes/get_product");
 var get_student_detailsRouter = require("./routes/get_student_details");
@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 // app.use('/users', usersRouter);
-app.use("/pushtrigger", pushtriggerRouter);
+app.use("/pushtrigger", pushtriggerRouter); // Get method
 app.use("/add_product", add_productRouter);
 app.use("/get_product", get_productRouter);
 app.use("/get_student_details", get_student_detailsRouter);

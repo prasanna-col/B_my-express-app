@@ -3,11 +3,11 @@ const firebase = require("firebase-admin");
 const serviceAccount = require('./demotest-68868-firebase-adminsdk-awcpz-08e7575acd.json');
 
 // Device ID
-const firebaseToken = "d7jVdx9tR1uZVBbUtAZX4L:APA91bGOqH5ojnwnhlLUo7vdMss85D4XYzwddUlWBC7MIuJXN68DiYUIV48NaOQ2ZGucSVes35wdO-TLPhxoP_gI4f5KrYrSd6R3GvF-0T5XPOF7VzThbSrJL66gYrEe-n4VmZ3mKLF_"; // office android device
+const firebaseToken = "e-2wIYGmRLazGrBSLHCq9p:APA91bG-vZCdH8iFOQBY1LsIunwBHjVzFxBju0oGmg9DrsKFky8cH4BTST4Vp72niCHZq79-C3RtVAtuYzTaAtmKUqxv71rOMhp7_5kqt2rtuZEXneO5LUMKzo2aNB3xTjwa-lE5LE_d"; // office android device
 
 var fb = firebase.initializeApp({
     credential: firebase.credential.cert(serviceAccount),
-    databaseURL: "https://demotest-68868-default-rtdb.firebaseio.com/"
+    databaseURL: "https://demotest-68868-default-rtdb.firebaseio.com/" // this URl from Realtime_database/data
 });
 
 const options = {
