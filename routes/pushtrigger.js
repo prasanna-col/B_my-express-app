@@ -8,8 +8,6 @@ const payload = {
     title: "Express Express",
     body: "Accept the pain",
     icon: "https://foo.bar.pizza-monster.png" // pass the image url
-     
-    
   },
 };
 

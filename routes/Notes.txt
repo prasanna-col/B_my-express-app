@@ -14,4 +14,5 @@
     var updatedata = { $set: { status: "R", price_of_product: 55 } };
     collection.updateOne(checkdata, updatedata, function (err, res) {
 
-// 
+// get_product, pagination_api -- Post API
+need to pass the data("page 0") number in body

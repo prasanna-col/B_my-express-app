@@ -2,7 +2,8 @@ const { MongoClient, ServerApiVersion } = require("mongodb");
 
 const DB_NAME = "Product"
 
-// password can be created from Database Access under security, and Add new datanase user
+// password can be created from Database Access under security, and Add new database user
+// eg: https://cloud.mongodb.com/v2/6197a245ccfe1e69744378b3#security/database/users
 const Pwd = "flutterapidata"
 
 // Atlas
