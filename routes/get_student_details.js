@@ -8,35 +8,39 @@ router.post("/", (request, response) => {
     if (err) throw err;
 
     const DB = Client.db(DB_NAME);
-    const collection = Client.db(DB_NAME).collection(Col.candidate_bio_data);
+    // const collection = Client.db(DB_NAME).collection(Col.candidate_bio_data);
 
-    DB.collection(Col.candidate_marks)
+    //Note: Get details from 2 collections and return th one  desired output.
+
+    // $cond: [{ $ne: ["$site", 'undefined'] }, "$site", null] 
+    
+    DB.collection(Col.candidate_marks_update)
       .aggregate([
         {
           $lookup: {
             from: Col.candidate_bio_data,
             localField: "Application_No",
-            foreignField: "Application_No",
-            as: "ph_marks",
+            foreignField: "Application_Number",
+            as: "bio_data",
           },
         },
         {
-          $unwind: "$ph_marks",
+          $unwind: "$bio_data",
         },
         {
           $project: {
-            _id:0,
-            student_id: "$Application_No",
-            student_name: "$ph_marks.Name",
-            dob: "$ph_marks.DOB",
-            core_sub_marks:{
-              phy_mark: {$toInt:"$Physics_Marks"},
-              Chem_Marks: {$toInt:"$Chem_Marks"},
-              Biology_Marks: {$toInt:"$Biology_Marks"},
+            _id: 0,
+            student_id: "$Application_Number",
+            student_name: "$bio_data.Name",
+            dob: "$bio_data.DOB",
+            core_sub_marks: {
+              phy_mark: { $toInt: "$Physics_Marks" },
+              Chem_Marks: { $toInt: "$Chem_Marks" },
+              Biology_Marks: { $toInt: "$Biology_Marks" },
             },
-            core_sub_total: {$sum: [ { $toInt: "$Physics_Marks" }, { $toInt: "$Chem_Marks" }, { $toInt: "$Biology_Marks" }]},
-            percentage:{ $avg:[ { $toInt: "$Physics_Marks" }, { $toInt: "$Chem_Marks" }, { $toInt: "$Biology_Marks" }]},
-            result:{$cond: { if: { $gte: [ { $avg:[ { $toInt: "$Physics_Marks" }, { $toInt: "$Chem_Marks" }, { $toInt: "$Biology_Marks" }]}, 75 ] }, then: "pass", else: "fail" }}
+            core_sub_total: { $sum: [{ $toInt: "$Physics_Marks" }, { $toInt: "$Chem_Marks" }, { $toInt: "$Biology_Marks" }] },
+            percentage: { $avg: [{ $toInt: "$Physics_Marks" }, { $toInt: "$Chem_Marks" }, { $toInt: "$Biology_Marks" }] },
+            result: { $cond: { if: { $gte: [{ $avg: [{ $toInt: "$Physics_Marks" }, { $toInt: "$Chem_Marks" }, { $toInt: "$Biology_Marks" }] }, 75] }, then: "pass", else: "fail" } }
           },
         },
       ])

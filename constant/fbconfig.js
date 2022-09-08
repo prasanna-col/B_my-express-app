@@ -1,5 +1,6 @@
 const firebase = require("firebase-admin");
 
+//In the Firebase console, open Settings > Service Accounts. Click Generate New Private Key, then confirm by clicking Generate Key. Securely store the JSON file containing the key.
 const serviceAccount = require('./demotest-68868-firebase-adminsdk-awcpz-08e7575acd.json');
 
 // Device ID

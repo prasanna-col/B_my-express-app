@@ -82,7 +82,7 @@ router.post("/", async (request, response) => {
     //     Client.close();
     //   });
 
-    // for pagination
+    // FOR PAGINATION
     
     // console.log("request.body ------>", request.body.page);
     var perPage = 2;
